@@ -86,4 +86,12 @@ export class UserResolverBase {
       throw error;
     }
   }
+
+  @graphql.Query(() => String)
+  async Api(
+    @graphql.Args()
+    args: string
+  ): Promise<string> {
+    return this.service.Api(args);
+  }
 }

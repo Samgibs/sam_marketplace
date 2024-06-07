@@ -44,4 +44,7 @@ export class UserServiceBase {
   ): Promise<PrismaUser> {
     return this.prisma.user.delete(args);
   }
+  async Api(args: string): Promise<string> {
+    throw new Error("Not implemented");
+  }
 }

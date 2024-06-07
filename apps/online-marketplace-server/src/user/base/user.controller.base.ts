@@ -151,4 +151,21 @@ export class UserControllerBase {
       throw error;
     }
   }
+
+  @common.Get("/:id/api")
+  @swagger.ApiOkResponse({
+    type: String,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async Api(
+    @common.Body()
+    body: string
+  ): Promise<string> {
+    return this.service.Api(body);
+  }
 }
